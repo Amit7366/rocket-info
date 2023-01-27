@@ -18,42 +18,75 @@ function App() {
       });
   }, []);
   if (loader) {
-    return <Row>
-      <Col xs={24} sm={24} md={12} lg={8} xl={6}>
-      <Skeleton
-      style={{width:'100%'}}
-    avatar
-    paragraph={{
-      rows: 4,
-    }}
-  />
-          </Col>
-    </Row>;
+    return (
+      <Row>
+        <Col xs={24} sm={24} md={12} lg={8} xl={6}>
+          <Skeleton
+            style={{ width: "100%" }}
+            avatar
+            paragraph={{
+              rows: 4,
+            }}
+          />
+        </Col>
+        <Col xs={24} sm={24} md={12} lg={8} xl={6}>
+          <Skeleton
+            style={{ width: "100%" }}
+            avatar
+            paragraph={{
+              rows: 4,
+            }}
+          />
+        </Col>
+        <Col xs={24} sm={24} md={12} lg={8} xl={6}>
+          <Skeleton
+            style={{ width: "100%" }}
+            avatar
+            paragraph={{
+              rows: 4,
+            }}
+          />
+        </Col>
+        <Col xs={24} sm={24} md={12} lg={8} xl={6}>
+          <Skeleton
+            style={{ width: "100%" }}
+            avatar
+            paragraph={{
+              rows: 4,
+            }}
+          />
+        </Col>
+      </Row>
+    );
   }
 
   return (
     <div className="">
       <Row>
-        <Col xs={24} sm={24} md={12} lg={8} xl={6}>
+        {
+          rockets.map((rocket,idx) => <Col key={idx} xs={24} sm={24} md={12} lg={8} xl={6}>
           <Card
             style={{
               width: "100%",
             }}
             cover={
               <img
+              style={{height:'350px'}}
                 alt="example"
-                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                src={rocket.links.mission_patch}
               />
             }
             actions={[]}
           >
             <Meta
-              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-              title="Card title"
-              description="This is the description"
+              avatar={<Avatar src={rocket.links.mission_patch_small} />}
+              title={rocket.mission_name}
+              description={rocket.details}
             />
           </Card>
-        </Col>
+        </Col>)
+        }
+        
       </Row>
     </div>
   );
