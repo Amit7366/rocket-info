@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-dom";
 const Details = () => {
   const { rocket } = useLoaderData();
   const fullData = rocket.second_stage.payloads[0];
-  console.log(fullData);
+//   console.log(fullData);
   return (
     <div>
       <Card title={fullData.payload_id} bordered={false}>
