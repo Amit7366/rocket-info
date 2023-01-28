@@ -4,10 +4,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const RocketCard = ({ rocket }) => {
-  const { mission_name, details, links } = rocket;
+  const { flight_number,mission_name, details, links } = rocket;
   return (
     <Col xs={24} sm={24} md={12} lg={8} xl={6}>
-      <Link to={""}>
+      <Link to={`/${flight_number}`}>
         <Card
           style={{
             width: "100%",
